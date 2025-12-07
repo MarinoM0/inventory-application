@@ -1,0 +1,10 @@
+<h1><%= category.name %></h1>
+<p><%= category.description %></p>
+<p>Last updated: <%= category.last_updated %></p>
+
+<a href="/categories/<%= category.id %>/edit">Edit</a> |
+<a href="/categories">Back to categories</a>
+
+<form action="/categories/<%= category.id %>?_method=DELETE" method="POST" style="margin-top:10px;">
+  <button type="submit">Delete Category</button>
+</form>

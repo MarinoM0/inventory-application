@@ -7,6 +7,7 @@ async function getAllCategories() {
 
 async function getCategoryById(id) {
   const res = await db.query("SELECT * FROM categories WHERE id=$1", [id]);
+  return res.rows[0];
 }
 
 async function createCategory(name, description) {
