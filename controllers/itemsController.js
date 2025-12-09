@@ -41,6 +41,11 @@ async function update(req, res) {
   res.redirect(`/items/${req.params.id}`);
 }
 
+async function remove(req, res) {
+  await Item.deleteItem(req.params.id);
+  res.redirect("/items");
+}
+
 module.exports = {
   index,
   newForm,
@@ -48,4 +53,5 @@ module.exports = {
   show,
   editForm,
   update,
+  remove
 };
