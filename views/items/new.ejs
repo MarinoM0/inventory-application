@@ -1,0 +1,26 @@
+<h1>Create Item</h1>
+
+<form action="/items" method="POST">
+  <label>Name</label>
+  <input type="text" name="name" required />
+
+  <label>Description</label>
+  <textarea name="description"></textarea>
+
+  <label>Price</label>
+  <input type="number" name="price" step="0.01" />
+
+  <label>Quantity</label>
+  <input type="number" name="quantity" />
+
+  <label>Category</label>
+  <select name="category_id">
+    <% categories.forEach(cat => { %>
+    <option value="<%= cat.id %>"><%= cat.name %></option>
+    <% }) %>
+  </select>
+
+  <button type="submit">Create Item</button>
+</form>
+
+<a href="/items">Back</a>

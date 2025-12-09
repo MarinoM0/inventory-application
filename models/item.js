@@ -12,7 +12,7 @@ async function getItemById(id) {
 
 async function createItem(name, description, price, quantity, category_id) {
   const res = await db.query(
-    "INSERT INTO Items (name,decription,price,quantity,category_id) VALUES ($1,$2,$3,$4,$5) RETURNING *",
+    "INSERT INTO items (name,description,price,quantity,category_id) VALUES ($1,$2,$3,$4,$5) RETURNING *",
     [name, description, price, quantity, category_id]
   );
   return res.rows[0];

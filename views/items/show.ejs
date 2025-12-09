@@ -1,0 +1,14 @@
+<h1><%= item.name %></h1>
+
+<p><strong>Description:</strong> <%= item.description %></p>
+<p><strong>Price:</strong> <%= item.price %>€</p>
+<p><strong>Quantity:</strong> <%= item.quantity %></p>
+
+<a href="/items/<%= item.id %>/edit">Edit</a>
+<br />
+
+<form method="POST" action="/items/<%= item.id %>?_method=DELETE">
+  <button>Delete</button>
+</form>
+
+<a href="/items">Back to items</a>
