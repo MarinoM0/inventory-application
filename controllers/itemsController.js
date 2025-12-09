@@ -22,9 +22,30 @@ async function show(req, res) {
   res.render("items/show", { item });
 }
 
+async function editForm(req, res) {
+  const item = await Item.getItemById(req.params.id);
+  const categories = await Category.getAllCategories();
+  res.render("items/edit", { item, categories });
+}
+
+async function update(req, res) {
+  const { name, description, price, quantity, category_id } = req.body;
+  await Item.updateItem(
+    req.params.id,
+    name,
+    description,
+    price,
+    quantity,
+    category_id
+  );
+  res.redirect(`/items/${req.params.id}`);
+}
+
 module.exports = {
   index,
   newForm,
   create,
   show,
+  editForm,
+  update,
 };
