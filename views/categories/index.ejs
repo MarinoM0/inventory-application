@@ -1,12 +1,26 @@
-<h1><%= title %></h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
 
-<a href="/categories/new">Create New Category</a>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
 
-<ul>
-  <% categories.forEach(category => { %>
-    <li>
-      <a href="/categories/<%= category.id %>"><%= category.name %></a>
-      (<a href="/categories/<%= category.id %>/edit">Edit</a>)
-    </li>
-  <% }) %>
-</ul>
+    <a href="/categories/new">Create New Category</a>
+
+    <ul>
+      <% categories.forEach(category => { %>
+      <li>
+        <a href="/categories/<%= category.id %>"><%= category.name %></a>
+        (<a href="/categories/<%= category.id %>/edit">Edit</a>)
+      </li>
+      <% }) %>
+    </ul>
+
+    <a href="/">Back to Home</a>
+  </body>
+</html>

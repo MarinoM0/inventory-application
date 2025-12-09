@@ -15,8 +15,10 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.get("/", (req, res) => {
-  res.send("app running");
+  res.render("home");
 });
+
+app.use(express.static("public"));
 
 app.use("/categories", categoriesRoutes);
 app.use("/items", itemsRoutes);

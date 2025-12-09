@@ -1,22 +1,35 @@
-<h1>Items</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Items</h1>
 
-<a href="/items/new">Create new item</a>
+    <a href="/items/new">Create new item</a>
+    <a href="/categories">View Categories</a>
 
-<ul>
-  <% items.forEach(item => { %>
-  <li>
-    <a href="/items/<%= item.id %>"><%= item.name %></a>
-    — <%= item.price %>€ — Qty: <%= item.quantity %>
+    <ul>
+      <% items.forEach(item => { %>
+      <li>
+        <a href="/items/<%= item.id %>"><%= item.name %></a>
+        — <%= item.price %>€ — Qty: <%= item.quantity %> <% if
+        (item.category_name) { %> — Category: <%= item.category_name %> <% } %>
 
-    <form
-      action="/items/<%= item.id %>?_method=DELETE"
-      method="POST"
-      style="display: inline"
-    >
-      <button>Delete</button>
-    </form>
+        <form
+          action="/items/<%= item.id %>?_method=DELETE"
+          method="POST"
+          style="display: inline"
+        >
+          <button>Delete</button>
+        </form>
 
-    <a href="/items/<%= item.id %>/edit">Edit</a>
-  </li>
-  <% }) %>
-</ul>
+        <a href="/items/<%= item.id %>/edit">Edit</a>
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>

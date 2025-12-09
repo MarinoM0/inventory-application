@@ -1,26 +1,37 @@
-<h1>Create Item</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Create Item</h1>
 
-<form action="/items" method="POST">
-  <label>Name</label>
-  <input type="text" name="name" required />
+    <form action="/items" method="POST">
+      <label>Name</label>
+      <input type="text" name="name" required />
 
-  <label>Description</label>
-  <textarea name="description"></textarea>
+      <label>Description</label>
+      <textarea name="description"></textarea>
 
-  <label>Price</label>
-  <input type="number" name="price" step="0.01" />
+      <label>Price</label>
+      <input type="number" name="price" step="0.01" />
 
-  <label>Quantity</label>
-  <input type="number" name="quantity" />
+      <label>Quantity</label>
+      <input type="number" name="quantity" />
 
-  <label>Category</label>
-  <select name="category_id">
-    <% categories.forEach(cat => { %>
-    <option value="<%= cat.id %>"><%= cat.name %></option>
-    <% }) %>
-  </select>
+      <label>Category</label>
+      <select name="category_id">
+        <% categories.forEach(cat => { %>
+        <option value="<%= cat.id %>"><%= cat.name %></option>
+        <% }) %>
+      </select>
 
-  <button type="submit">Create Item</button>
-</form>
+      <button type="submit">Create Item</button>
+    </form>
 
-<a href="/items">Back</a>
+    <a href="/items">Back</a>
+  </body>
+</html>

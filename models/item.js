@@ -10,6 +10,11 @@ async function getItemById(id) {
   return res.rows[0];
 }
 
+async function getItemsByCategory(category_id) {
+  const res = await db.query("SELECT * FROM items WHERE category_id = $1", [category_id]);
+  return res.rows;
+}
+
 async function createItem(name, description, price, quantity, category_id) {
   const res = await db.query(
     "INSERT INTO items (name,description,price,quantity,category_id) VALUES ($1,$2,$3,$4,$5) RETURNING *",
@@ -33,6 +38,7 @@ async function deleteItem(id) {
 module.exports = {
   getAllItems,
   getItemById,
+  getItemsByCategory,
   createItem,
   updateItem,
   deleteItem,
